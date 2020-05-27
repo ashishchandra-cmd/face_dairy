@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{% block body%}
+<div class="container">
+<h1>Write Your Post Here </h1>
+<form name='myform'onsubmit='return validate()' method="Post" enctype="multipart/form-data">
+  <span id="sp1"></span>
+  {{form.as_p}} 
+  {% csrf_token%}
+  <input type="submit" value="Submit" class="btn btn-lg btn-success">
+  <a href="{% url 'home'%}" class="btn btn-lg btn-primary">Back</a>
+</form>
+
+</div>
+{% endblock %}
+
+
+{% block js%}
+<script>
+var title1=document.querySelector('#id_title');
+title1.addEventListener('mouseover',function () {
+title1.style.backgroundColor='lightblue';
+});
+ title1.addEventListener('mouseout',function () {
+title1.style.color='blue';
+title1.style.backgroundColor='lightgreen';
+  });
+
+  var body=document.querySelector('#id_body');
+  body.addEventListener('mouseover',function () {
+    body.style.backgroundColor='lightblue';
+    body.style.color='green';
+});
+body.addEventListener('mouseout',function () {
+  body.style.color='blue';
+  body.style.backgroundColor='lightgreen';
+  });
+
+  
+
+//title is not a integers
+function validate() {
+  var mytitle=document.getElementById('id_title').value;
+  var rgx=/^[0-9]*$/;
+  if(rgx.test(mytitle)){
+    document.getElementById('sp1').textContent='please enter letters';
+    document.getElementById('sp1').style.color='red';
+    document.getElementById('id_title').style.color='red';
+    return false;
+  }
+  else{
+   // document.getElementById('sp1').textContent='valid';
+    //document.getElementById('sp1').style.color='green';
+    return true;
+  }
+  
+}
+</script>
+{% endblock %}

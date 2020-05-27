@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{% block body%}
+{% for f in face_details%}
+<div>
+<ul>
+    <li id="l1" class="c1">
+      <b>  Title:</b>&nbsp&nbsp {{f.title}}
+    </li>
+    <li id="l2">
+       <b> Image: </b>&nbsp&nbsp<img src="{{ f.img.url }}" class="img-responsive" style="width:125px; height:150px" />
+    </li>
+    <li  id="l3" class="c1">
+      <b>  About: </b>&nbsp&nbsp <em>{{f.body|linebreaks}}</em>
+    </li>
+    <li  id="l4">
+      <b> Publish on: </b> &nbsp&nbsp{{f.publish}}
+    </li>
+</ul>
+</div>
+<hr style='border:5px solid rgb(240, 97, 97) ' width="90%">
+
+{% endfor%}
+{% include 'pagination.html' with page=face_details %}
+
+{% endblock %}
+
+
+{% block js%}
+<script>
+var title=document.querySelectorAll('.c1')[0];
+title.addEventListener('mouseover',function () {
+title.style.backgroundColor='lightblue';
+});
+ title.addEventListener('mouseout',function () {
+title.style.color='blue';
+title.style.backgroundColor='lightgreen';
+  });
+
+  var body=document.querySelectorAll('.c1')[1];
+  body.addEventListener('mouseover',function () {
+    body.style.backgroundColor='lightblue';
+    body.style.color='green';
+});
+body.addEventListener('mouseout',function () {
+  body.style.color='blue';
+  body.style.backgroundColor='lightgreen';
+  });
+
+</script>
+{% endblock %}

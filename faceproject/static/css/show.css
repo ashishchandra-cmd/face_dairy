@@ -1,0 +1,29 @@
+body{
+
+    background-color: rgb(161, 231, 231);
+    
+}
+#l3{
+    
+    border: 0px solid green;
+    width: 95%;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+div{
+    border: 0px solid red;
+    width: 80%;
+    margin: auto;
+      
+}
+#l1{
+    
+    width: 95%;
+    font-size: 25px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+#l2{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
